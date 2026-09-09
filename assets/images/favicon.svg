@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#ffffff"/>
+
+  <!-- Black 'W' stroke -->
+  <path d="M 130 155 Q 155 260 185 375 Q 230 285 265 190 Q 295 275 320 360 Q 338 270 350 195" 
+        fill="none" stroke="#050505" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Red 'M' stroke -->
+  <path d="M 225 85 Q 230 190 235 305 Q 285 195 315 160 Q 355 240 380 345 Q 395 210 405 85" 
+        fill="none" stroke="#e60012" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
