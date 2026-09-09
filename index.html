@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebsiteMo — Build Your Identity | Custom Website Design & Development Agency</title>
+  <meta name="description" content="WebsiteMo is a premium website design & development agency. We build stunning, high-performance websites tailored to grow your business and brand identity.">
+  <meta name="keywords" content="web design, web development, website agency, custom websites, e-commerce, SEO, branding">
+  <meta name="author" content="WebsiteMo">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        Website<span class="logo-red">Mo</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta" id="nav-cta">
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary">Get a Quote</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="assets/images/hero-bg.png" alt="Abstract geometric background" loading="eager">
+    </div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Now Accepting New Projects
+      </div>
+      <h1>We Build Websites That <span class="highlight">Build Brands.</span></h1>
+      <p class="hero-subtitle">Custom-designed, high-performance websites tailored to grow your business. From concept to launch — we handle everything.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary" id="hero-cta-primary">Start Your Project</a>
+        <a href="#portfolio" class="btn btn-outline" id="hero-cta-secondary">View Our Work</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-indicator"></div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Our Services</span>
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-subtitle">We craft digital experiences that drive results. Here's how we can help you succeed online.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card reveal" id="service-design">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3>Custom Website Design</h3>
+          <p>Stunning, unique designs that reflect your brand personality and captivate your audience from the first click.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card reveal" id="service-development">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Web Development</h3>
+          <p>Clean, performant, and responsive code built with modern technologies. Fast-loading sites that work on every device.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card reveal" id="service-ecommerce">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <h3>E-Commerce Solutions</h3>
+          <p>Powerful online stores with seamless checkout experiences, inventory management, and payment integration.</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card reveal" id="service-seo">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>SEO Optimization</h3>
+          <p>Get found on Google with technical SEO, content strategy, and performance optimization that drives organic traffic.</p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card reveal" id="service-maintenance">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Website Maintenance</h3>
+          <p>Keep your site running perfectly with regular updates, security monitoring, backups, and performance tuning.</p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card reveal" id="service-branding">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Brand Identity</h3>
+          <p>Complete visual identity packages including logos, color palettes, typography, and brand guidelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Our Work</h2>
+        <p class="section-subtitle">A showcase of our latest projects. Every site we build is a unique experience tailored to our client's vision.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Portfolio 1 - Has generated image -->
+        <div class="portfolio-card reveal-scale" id="project-luxe">
+          <img src="assets/images/portfolio-1.png" alt="Luxe Interiors corporate website project">
+          <div class="portfolio-overlay">
+            <span class="tag">Corporate</span>
+            <h3>Luxe Interiors</h3>
+            <p>Premium interior design firm website</p>
+          </div>
+        </div>
+
+        <!-- Portfolio 2 - Has generated image -->
+        <div class="portfolio-card reveal-scale" id="project-stylecraft">
+          <img src="assets/images/portfolio-2.png" alt="StyleCraft e-commerce website project">
+          <div class="portfolio-overlay">
+            <span class="tag">E-Commerce</span>
+            <h3>StyleCraft</h3>
+            <p>Modern fashion e-commerce platform</p>
+          </div>
+        </div>
+
+        <!-- Portfolio 3 - Gradient placeholder -->
+        <div class="portfolio-card reveal-scale" id="project-studio">
+          <div class="portfolio-placeholder grad-1">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <span class="tag">Portfolio</span>
+            <h3>Studio Capture</h3>
+            <p>Photography portfolio & booking site</p>
+          </div>
+        </div>
+
+        <!-- Portfolio 4 - Gradient placeholder -->
+        <div class="portfolio-card reveal-scale" id="project-flowmetrics">
+          <div class="portfolio-placeholder grad-2">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <span class="tag">SaaS</span>
+            <h3>FlowMetrics</h3>
+            <p>Analytics dashboard SaaS platform</p>
+          </div>
+        </div>
+
+        <!-- Portfolio 5 - Gradient placeholder -->
+        <div class="portfolio-card reveal-scale" id="project-harvest">
+          <div class="portfolio-placeholder grad-3">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <span class="tag">Landing Page</span>
+            <h3>Harvest Kitchen</h3>
+            <p>Farm-to-table restaurant experience</p>
+          </div>
+        </div>
+
+        <!-- Portfolio 6 - Gradient placeholder -->
+        <div class="portfolio-card reveal-scale" id="project-bytewise">
+          <div class="portfolio-placeholder grad-4">
+            <div class="placeholder-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-overlay">
+            <span class="tag">Blog</span>
+            <h3>ByteWise</h3>
+            <p>Tech publication & media platform</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-content reveal-left">
+          <span class="section-tag">About Us</span>
+          <h2>We're Passionate About Building <span style="color: var(--color-accent);">Digital Experiences</span></h2>
+          <div class="about-text">
+            <p>WebsiteMo was founded with a simple mission: help businesses build their identity online. We believe every brand deserves a website that not only looks incredible but performs flawlessly.</p>
+            <p>Our team of designers and developers work closely with each client to understand their vision, goals, and audience — then bring it all to life with cutting-edge design and technology.</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number" data-target="50">0</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="30">0</div>
+              <div class="stat-label">Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="3">0</div>
+              <div class="stat-label">Years Exp.</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal-right">
+          <div class="about-image-wrapper">
+            <div class="about-img-placeholder">
+              <span class="about-logo-text">Website<span style="color: rgba(230, 0, 18, 0.6);">Mo</span></span>
+            </div>
+          </div>
+          <div class="about-floating-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="card-text">
+              <strong>100% Satisfaction</strong>
+              <span>We don't stop until you love it</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title light">What Our Clients Say</h2>
+        <p class="section-subtitle light">Don't just take our word for it — hear from the businesses we've helped transform online.</p>
+      </div>
+
+      <div class="testimonial-slider reveal" id="testimonial-slider">
+        <div class="testimonial-track" id="testimonial-track">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+              </div>
+              <p class="testimonial-text">"WebsiteMo completely transformed our online presence. The design is stunning and our conversion rates have doubled since launch. Truly world-class work."</p>
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="testimonial-author">
+                <strong>Sarah Mitchell</strong>
+                <span>CEO, Luxe Interiors</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+              </div>
+              <p class="testimonial-text">"From design to deployment, the WebsiteMo team was incredibly professional and responsive. Our e-commerce store is fast, beautiful, and customers love shopping on it."</p>
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="testimonial-author">
+                <strong>James Carter</strong>
+                <span>Founder, StyleCraft</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+              </div>
+              <p class="testimonial-text">"I've worked with several web agencies before, but WebsiteMo is on another level. They truly understood our brand and delivered a site that exceeded every expectation."</p>
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="testimonial-author">
+                <strong>Emily Rodriguez</strong>
+                <span>Marketing Director, FlowMetrics</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+              </div>
+              <p class="testimonial-text">"Our restaurant's online reservations increased by 300% after launching the site WebsiteMo built for us. The design perfectly captures our atmosphere and brand."</p>
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="testimonial-author">
+                <strong>David Park</strong>
+                <span>Owner, Harvest Kitchen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-dots" id="testimonial-dots">
+          <button class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></button>
+          <button class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></button>
+          <button class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></button>
+          <button class="testimonial-dot" data-index="3" aria-label="Testimonial 4"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Pricing</span>
+        <h2 class="section-title">Our Packages</h2>
+        <p class="section-subtitle">Transparent pricing for every stage of your business. All packages include dedicated project management.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card reveal" id="pricing-starter">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">
+            <span class="currency">$</span><span class="amount">499</span>
+          </div>
+          <p class="pricing-period">One-time payment</p>
+          <ul class="pricing-features">
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Up to 5 pages
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Responsive design
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Contact form
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Basic SEO setup
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              1 round of revisions
+            </li>
+            <li>
+              <svg class="cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              E-commerce integration
+            </li>
+            <li>
+              <svg class="cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Custom animations
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Get Started</a>
+        </div>
+
+        <!-- Professional (Featured) -->
+        <div class="pricing-card featured reveal" id="pricing-professional">
+          <span class="pricing-badge">Most Popular</span>
+          <div class="pricing-name">Professional</div>
+          <div class="pricing-price">
+            <span class="currency">$</span><span class="amount">999</span>
+          </div>
+          <p class="pricing-period">One-time payment</p>
+          <ul class="pricing-features">
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Up to 15 pages
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom design & branding
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              CMS integration
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Advanced SEO
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              3 rounds of revisions
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom animations
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              30-day post-launch support
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal" id="pricing-enterprise">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">
+            <span class="currency">$</span><span class="amount">2499</span>
+          </div>
+          <p class="pricing-period">One-time payment</p>
+          <ul class="pricing-features">
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited pages
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              E-commerce integration
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom web application
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Full SEO & analytics
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited revisions
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              90-day post-launch support
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <p class="section-subtitle">Ready to start your project? Fill out the form below and we'll get back to you within 24 hours.</p>
+      </div>
+
+      <div class="contact-wrapper">
+        <form class="contact-form reveal-left" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" name="phone" placeholder="+1 (555) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="contact-project">Project Type</label>
+              <select id="contact-project" name="project">
+                <option value="" disabled selected>Select a project type</option>
+                <option value="website">Website Design</option>
+                <option value="ecommerce">E-Commerce Store</option>
+                <option value="webapp">Web Application</option>
+                <option value="redesign">Website Redesign</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="branding">Brand Identity</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-budget">Budget Range</label>
+            <select id="contact-budget" name="budget">
+              <option value="" disabled selected>Select your budget range</option>
+              <option value="500-1000">$500 - $1,000</option>
+              <option value="1000-2500">$1,000 - $2,500</option>
+              <option value="2500-5000">$2,500 - $5,000</option>
+              <option value="5000+">$5,000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Tell Us About Your Project</label>
+            <textarea id="contact-message" name="message" placeholder="Describe your project, goals, and any specific requirements..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="contact-submit">
+            <span>Send Message</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+        <div class="contact-info reveal-right">
+          <div>
+            <h3>Get in Touch</h3>
+            <p>We'd love to hear about your project. Reach out through any of the channels below and let's start a conversation.</p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>Email Us</strong>
+                <span><a href="mailto:hello@websitemo.com">hello@websitemo.com</a></span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>Call Us</strong>
+                <span><a href="tel:+15551234567">+1 (555) 123-4567</a></span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong>Visit Us</strong>
+                <span>123 Digital Street, Suite 400<br>New York, NY 10001</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <!-- Facebook -->
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            Website<span class="logo-red">Mo</span>
+          </a>
+          <p>We build websites that build brands. From design to deployment, we deliver digital experiences that drive real results.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Website Design</a></li>
+            <li><a href="#services">Web Development</a></li>
+            <li><a href="#services">E-Commerce</a></li>
+            <li><a href="#services">SEO Optimization</a></li>
+            <li><a href="#services">Maintenance</a></li>
+            <li><a href="#services">Brand Identity</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@websitemo.com">hello@websitemo.com</a></li>
+            <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            <li><span style="color: rgba(255,255,255,0.6);">123 Digital Street<br>New York, NY 10001</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 <a href="#">WebsiteMo</a>. All rights reserved.</p>
+        <p>Build your identity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
