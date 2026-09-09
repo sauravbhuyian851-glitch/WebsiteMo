@@ -313,6 +313,53 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.paddingTop = '32px';
   }
 
+  // ─── Load Live Published Posts from CMS API ───
+  const loadCmsPosts = async () => {
+    const container = document.getElementById('cms-posts-grid');
+    if (!container) return;
+
+    try {
+      const res = await fetch('/api/posts?post_type=post&status=publish');
+      if (!res.ok) throw new Error('Failed to fetch posts');
+      const data = await res.json();
+      const posts = data.posts || [];
+
+      if (posts.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; color: #646970; padding: 40px 20px; background: #ffffff; border-radius: 12px; border: 1px dashed #c3c4c7;">
+            <p style="margin: 0; font-size: 15px; font-weight: 500;">No published posts yet. Publish posts from your <a href="/admin/#/posts/new" style="color: #2271b1; font-weight: 700; text-decoration: none;">Admin Panel</a> to display them here live!</p>
+          </div>
+        `;
+        return;
+      }
+
+      const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+      container.innerHTML = posts.map(post => `
+        <article class="post-card" style="background: #ffffff; border-radius: 16px; padding: 28px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <span style="font-size: 12px; font-weight: 700; color: #E60012; text-transform: uppercase; letter-spacing: 0.5px;">${new Date(post.created_at || Date.now()).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+              <span style="font-size: 11px; background: #edf2f7; color: #4a5568; padding: 2px 8px; border-radius: 10px; font-weight: 600;">Published</span>
+            </div>
+            <h3 style="font-size: 20px; font-weight: 700; margin: 0 0 12px 0; color: #1a202c; line-height: 1.3;">${escapeHtml(post.title || 'Untitled')}</h3>
+            <div style="font-size: 14px; color: #4a5568; line-height: 1.6; margin-bottom: 20px;">
+              ${escapeHtml(post.excerpt || post.content.replace(/<[^>]*>?/gm, '').substring(0, 140) + '...')}
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; font-weight: 600; color: #718096; border-top: 1px solid #edf2f7; padding-top: 16px;">
+            <span>By ${escapeHtml(post.author_name || 'Admin')}</span>
+            <span style="color: #2271b1; font-weight: 700; cursor: pointer;">Read More →</span>
+          </div>
+        </article>
+      `).join('');
+    } catch (err) {
+      console.warn('[CMS Frontend] Could not load live posts:', err.message);
+    }
+  };
+
+  loadCmsPosts();
+
   // ─── Add spin animation for loading ───
   const style = document.createElement('style');
   style.textContent = `
