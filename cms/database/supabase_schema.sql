@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS public.post_meta (
     meta_value  TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_postmeta_post ON public.post_meta(post_id);
-CREATE INDEX IF NOT EXISTS idx_postmeta_key ON public.meta_key ON public.post_meta(meta_key);
+CREATE INDEX IF NOT EXISTS idx_postmeta_key ON public.post_meta(meta_key);
 
 -- 5. TERMS & TAXONOMIES
 CREATE TABLE IF NOT EXISTS public.terms (
