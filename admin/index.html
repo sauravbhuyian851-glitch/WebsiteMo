@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard ‹ WebsiteMo Admin</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/components.css">
+</head>
+<body class="admin-body">
+  <!-- Persistent Top Admin Bar -->
+  <div id="wpadminbar">
+    <div class="adminbar-left">
+      <button type="button" class="adminbar-item" id="mobileMenuToggle" style="background: none; border: none; font-size: 16px;">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      
+      <a href="#/dashboard" class="adminbar-item adminbar-logo">
+        <img src="/favicon.ico" alt="Logo">
+        <span>WebsiteMo</span>
+      </a>
+
+      <a href="/" target="_blank" class="adminbar-item" title="Visit Site">
+        <i class="fa-solid fa-house"></i>
+        <span>Visit Site</span>
+      </a>
+
+      <div class="adminbar-item adminbar-dropdown">
+        <i class="fa-solid fa-plus"></i>
+        <span>New</span>
+        <div class="adminbar-dropdown-menu">
+          <a href="#/posts/new"><i class="fa-solid fa-pin-paper"></i> Post</a>
+          <a href="#/media"><i class="fa-solid fa-photo-film"></i> Media</a>
+          <a href="#/pages/new"><i class="fa-solid fa-file"></i> Page</a>
+          <a href="#/users"><i class="fa-solid fa-user-plus"></i> User</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="adminbar-right">
+      <button type="button" class="screen-meta-toggle" id="screenOptionsToggle">Screen Options</button>
+
+      <div class="adminbar-item adminbar-dropdown">
+        <img src="/favicon.ico" alt="User Avatar" class="adminbar-avatar">
+        <span id="adminbarUserDisplayName">Howdy, Admin</span>
+        <div class="adminbar-dropdown-menu" style="right: 0; left: auto;">
+          <a href="#/users"><i class="fa-solid fa-id-badge"></i> Edit Profile</a>
+          <a href="javascript:void(0)" onclick="App.logout()" style="color: #f87171;"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <div id="adminmenumain">
+    <ul id="adminmenu">
+      <li class="menu-top wp-has-current-submenu current">
+        <a href="#/dashboard" class="menu-top">
+          <i class="fa-solid fa-gauge-high menu-icon"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="menu-heading">Content</li>
+
+      <li class="wp-has-submenu">
+        <a href="#/posts" class="menu-top">
+          <i class="fa-solid fa-pin-paper menu-icon"></i>
+          <span>Posts</span>
+        </a>
+        <ul class="wp-submenu">
+          <li><a href="#/posts">All Posts</a></li>
+          <li><a href="#/posts/new">Add New</a></li>
+          <li><a href="#/categories">Categories</a></li>
+          <li><a href="#/tags">Tags</a></li>
+        </ul>
+      </li>
+
+      <li class="wp-has-submenu">
+        <a href="#/media" class="menu-top">
+          <i class="fa-solid fa-photo-film menu-icon"></i>
+          <span>Media</span>
+        </a>
+        <ul class="wp-submenu">
+          <li><a href="#/media">Library</a></li>
+        </ul>
+      </li>
+
+      <li class="wp-has-submenu">
+        <a href="#/pages" class="menu-top">
+          <i class="fa-solid fa-file menu-icon"></i>
+          <span>Pages</span>
+        </a>
+        <ul class="wp-submenu">
+          <li><a href="#/pages">All Pages</a></li>
+          <li><a href="#/pages/new">Add New</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/comments" class="menu-top">
+          <i class="fa-solid fa-comments menu-icon"></i>
+          <span>Comments</span>
+        </a>
+      </li>
+
+      <li class="menu-heading">Administration</li>
+
+      <li class="wp-has-submenu">
+        <a href="#/plugins" class="menu-top">
+          <i class="fa-solid fa-plug menu-icon"></i>
+          <span>Plugins</span>
+        </a>
+        <ul class="wp-submenu">
+          <li><a href="#/plugins">Installed Plugins</a></li>
+        </ul>
+      </li>
+
+      <li class="wp-has-submenu">
+        <a href="#/users" class="menu-top">
+          <i class="fa-solid fa-users menu-icon"></i>
+          <span>Users</span>
+        </a>
+        <ul class="wp-submenu">
+          <li><a href="#/users">All Users</a></li>
+        </ul>
+      </li>
+
+      <li class="wp-has-submenu">
+        <a href="#/settings?group=general" class="menu-top">
+          <i class="fa-solid fa-sliders menu-icon"></i>
+          <span>Settings</span>
+        </a>
+        <ul class="wp-submenu">
+          <li><a href="#/settings?group=general">General</a></li>
+          <li><a href="#/settings?group=writing">Writing</a></li>
+          <li><a href="#/settings?group=reading">Reading</a></li>
+          <li><a href="#/settings?group=discussion">Discussion</a></li>
+          <li><a href="#/settings?group=media">Media</a></li>
+          <li><a href="#/settings?group=permalink">Permalinks</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <button type="button" id="collapse-button">
+      <i class="fa-solid fa-circle-chevron-left"></i>
+      <span>Collapse menu</span>
+    </button>
+  </div>
+
+  <!-- Main Content Layout -->
+  <div id="wpcontent">
+    <!-- Screen Options Panel -->
+    <div id="screen-meta">
+      <div class="screen-meta-section">
+        <h5>Screen Elements</h5>
+        <div class="screen-options-group">
+          <label><input type="checkbox" checked> At a Glance</label>
+          <label><input type="checkbox" checked> Quick Draft</label>
+          <label><input type="checkbox" checked> Activity</label>
+          <label><input type="checkbox" checked> Site Health Status</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main View Renderer -->
+    <div id="wpbody-content"></div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Client JavaScript Scripts -->
+  <script src="/admin/js/api.js"></script>
+  <script src="/admin/js/views/dashboardView.js"></script>
+  <script src="/admin/js/views/postsView.js"></script>
+  <script src="/admin/js/views/editorView.js"></script>
+  <script src="/admin/js/views/taxonomiesView.js"></script>
+  <script src="/admin/js/views/mediaView.js"></script>
+  <script src="/admin/js/views/commentsView.js"></script>
+  <script src="/admin/js/views/usersView.js"></script>
+  <script src="/admin/js/views/pluginsView.js"></script>
+  <script src="/admin/js/views/settingsView.js"></script>
+  <script src="/admin/js/router.js"></script>
+  <script src="/admin/js/app.js"></script>
+</body>
+</html>

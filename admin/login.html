@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In ‹ WebsiteMo Admin</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <style>
+    body.login-page {
+      background-color: #f0f0f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 360px;
+      padding: 20px;
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .login-logo img {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .login-logo h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1d2327;
+      margin: 12px 0 4px 0;
+    }
+    .login-logo p {
+      font-size: 13px;
+      color: #646970;
+      margin: 0;
+    }
+    .login-card {
+      background: #ffffff;
+      border: 1px solid #c3c4c7;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .login-card .form-group {
+      margin-bottom: 18px;
+    }
+    .login-card label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2c3338;
+      margin-bottom: 6px;
+    }
+    .login-card input[type="text"],
+    .login-card input[type="email"],
+    .login-card input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid #8c8f94;
+      border-radius: 4px;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .login-card input:focus {
+      border-color: #2271b1;
+      box-shadow: 0 0 0 1px #2271b1;
+      outline: 2px solid transparent;
+    }
+    .login-card .remember-me {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #50575e;
+    }
+    .login-card .remember-me label {
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+    .btn-login {
+      width: 100%;
+      background: #2271b1;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-login:hover {
+      background: #135e96;
+    }
+    .login-footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .login-footer a {
+      color: #2271b1;
+      text-decoration: none;
+    }
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+    .login-error {
+      background: #fcf0f1;
+      border-left: 4px solid #d63638;
+      color: #d63638;
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .login-success {
+      background: #edfaef;
+      border-left: 4px solid #00a32a;
+      color: #00a32a;
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      display: none;
+    }
+  </style>
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <div class="login-logo">
+      <img src="/favicon.ico" alt="WebsiteMo Logo">
+      <h1>WebsiteMo Admin</h1>
+      <p>Content Management System</p>
+    </div>
+
+    <div class="login-error" id="loginError"></div>
+    <div class="login-success" id="loginSuccess"></div>
+
+    <div class="login-card" id="loginFormCard">
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username or Email Address</label>
+          <input type="text" id="username" name="username" required placeholder="admin or admin@websitemo.com" autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+        </div>
+
+        <div class="remember-me">
+          <label><input type="checkbox" id="rememberMe"> Remember Me</label>
+          <a href="#" id="forgotPasswordToggle">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-login" id="submitBtn">
+          <span>Log In</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- Forgot Password Card -->
+    <div class="login-card" id="forgotFormCard" style="display: none;">
+      <h2 style="font-size: 16px; margin: 0 0 12px 0; color: #1d2327;">Reset Password</h2>
+      <p style="font-size: 13px; color: #646970; margin-bottom: 16px;">Please enter your email address. You will receive a link to create a new password via email.</p>
+      
+      <form id="forgotForm">
+        <div class="form-group">
+          <label for="forgotEmail">Email Address</label>
+          <input type="email" id="forgotEmail" required placeholder="admin@websitemo.com">
+        </div>
+
+        <button type="submit" class="btn-login" id="forgotSubmitBtn">
+          <span>Get New Password</span>
+        </button>
+        
+        <div style="margin-top: 12px; text-align: center;">
+          <a href="#" id="backToLogin" style="font-size: 13px; color: #2271b1; text-decoration: none;">← Back to Log In</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="login-footer">
+      <a href="/">← Go to WebsiteMo.com</a>
+    </div>
+  </div>
+
+  <script src="/admin/js/api.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const forgotForm = document.getElementById('forgotForm');
+      const loginFormCard = document.getElementById('loginFormCard');
+      const forgotFormCard = document.getElementById('forgotFormCard');
+      const loginError = document.getElementById('loginError');
+      const loginSuccess = document.getElementById('loginSuccess');
+      const forgotPasswordToggle = document.getElementById('forgotPasswordToggle');
+      const backToLogin = document.getElementById('backToLogin');
+
+      forgotPasswordToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginFormCard.style.display = 'none';
+        forgotFormCard.style.display = 'block';
+        loginError.style.display = 'none';
+        loginSuccess.style.display = 'none';
+      });
+
+      backToLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        forgotFormCard.style.display = 'none';
+        loginFormCard.style.display = 'block';
+        loginError.style.display = 'none';
+        loginSuccess.style.display = 'none';
+      });
+
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginError.style.display = 'none';
+        loginSuccess.style.display = 'none';
+
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const submitBtn = document.getElementById('submitBtn');
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Logging in...';
+
+        try {
+          const res = await API.post('/api/auth/login', { username, password });
+          if (res.token) {
+            localStorage.setItem('cms_token', res.token);
+            localStorage.setItem('cms_user', JSON.stringify(res.user));
+            loginSuccess.innerText = 'Login successful! Redirecting to dashboard...';
+            loginSuccess.style.display = 'block';
+            setTimeout(() => {
+              window.location.href = '/admin/';
+            }, 500);
+          }
+        } catch (err) {
+          loginError.innerText = err.message || 'Invalid username or password.';
+          loginError.style.display = 'block';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Log In</span> <i class="fa-solid fa-arrow-right"></i>';
+        }
+      });
+
+      forgotForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginError.style.display = 'none';
+        loginSuccess.style.display = 'none';
+
+        const email = document.getElementById('forgotEmail').value.trim();
+        const btn = document.getElementById('forgotSubmitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+        try {
+          const res = await API.post('/api/auth/forgot-password', { email });
+          loginSuccess.innerText = res.message || 'Password reset email sent.';
+          loginSuccess.style.display = 'block';
+        } catch (err) {
+          loginError.innerText = err.message || 'Failed to request password reset.';
+          loginError.style.display = 'block';
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = '<span>Get New Password</span>';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
