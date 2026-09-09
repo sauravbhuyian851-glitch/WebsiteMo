@@ -57,6 +57,8 @@ const Post = {
   },
 
   create(data) {
+    const authorId = data.author_id || data.post_author || 1;
+    const postStatus = data.post_status || data.status || 'draft';
     const slug = uniqueSlug(data.slug || data.title || 'untitled', (s) => {
       return !!queryOne('SELECT id FROM posts WHERE slug = ? AND post_type = ?', [s, data.post_type || 'post']);
     });
@@ -65,9 +67,9 @@ const Post = {
       `INSERT INTO posts (author_id, post_type, post_status, title, slug, content, excerpt, password, parent_id, menu_order, comment_status, ping_status, mime_type, guid, publish_date)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        data.author_id,
+        authorId,
         data.post_type || 'post',
-        data.post_status || 'draft',
+        postStatus,
         data.title || '',
         slug,
         data.content || '',
@@ -79,7 +81,7 @@ const Post = {
         data.ping_status || 'open',
         data.mime_type || '',
         data.guid || '',
-        data.publish_date || null
+        data.publish_date || new Date().toISOString()
       ]
     );
     return this.findById(result.lastInsertRowid);
@@ -100,7 +102,10 @@ const Post = {
     }
     if (data.content !== undefined) { fields.push('content = ?'); params.push(data.content); }
     if (data.excerpt !== undefined) { fields.push('excerpt = ?'); params.push(data.excerpt); }
-    if (data.post_status !== undefined) { fields.push('post_status = ?'); params.push(data.post_status); }
+    if (data.post_status !== undefined || data.status !== undefined) {
+      fields.push('post_status = ?');
+      params.push(data.post_status !== undefined ? data.post_status : data.status);
+    }
     if (data.password !== undefined) { fields.push('password = ?'); params.push(data.password); }
     if (data.parent_id !== undefined) { fields.push('parent_id = ?'); params.push(data.parent_id); }
     if (data.menu_order !== undefined) { fields.push('menu_order = ?'); params.push(data.menu_order); }

@@ -64,6 +64,7 @@ router.get('/:id', authenticate(), (req, res, next) => {
 router.post('/', authenticate(), authorize(['administrator', 'editor', 'author']), (req, res, next) => {
   try {
     const data = req.body;
+    data.author_id = req.user.id;
     data.post_author = req.user.id;
 
     // Filter input data
