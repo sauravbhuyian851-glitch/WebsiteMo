@@ -73,7 +73,7 @@ router.post('/forgot-password', async (req, res, next) => {
     User.setResetToken(user.id, token);
 
     const resetUrl = `${req.protocol}://${req.get('host')}/admin/login.html?action=reset&token=${token}`;
-    await sendPasswordResetEmail(user.user_email, resetUrl);
+    await sendPasswordResetEmail(user.email, resetUrl);
 
     res.json({ message: 'If an account with that email exists, password reset instructions have been sent.' });
   } catch (err) {

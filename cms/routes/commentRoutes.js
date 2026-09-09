@@ -62,7 +62,7 @@ router.post('/', authenticate(), (req, res, next) => {
       content,
       parent: parseInt(parent, 10) || 0,
       author: req.user ? req.user.display_name : (author || 'Anonymous'),
-      email: req.user ? req.user.user_email : (email || ''),
+      email: req.user ? (req.user.email || req.user.user_email) : (email || ''),
       url: url || '',
       ip: req.ip,
       userId: req.user ? req.user.id : 0,

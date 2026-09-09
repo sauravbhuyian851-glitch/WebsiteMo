@@ -45,7 +45,7 @@ router.get('/:id', authenticate(), (req, res, next) => {
     if (req.user.role !== 'administrator' && req.user.id !== parseInt(req.params.id, 10)) {
       return res.json({
         id: user.id,
-        user_login: user.user_login,
+        username: user.username,
         display_name: user.display_name,
         role: user.role
       });

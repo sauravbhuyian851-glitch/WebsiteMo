@@ -57,13 +57,13 @@ function doAuthenticate(req, res, next) {
     const decoded = jwt.verify(token, secret);
     
     // Fetch user data
-    const user = queryOne('SELECT id, user_login, user_email, display_name, role, user_status FROM users WHERE id = ?', [decoded.userId]);
+    const user = queryOne('SELECT id, username, email, display_name, role, status FROM users WHERE id = ?', [decoded.userId]);
 
     if (!user) {
       return res.status(401).json({ error: 'User not found' });
     }
 
-    if (user.user_status !== 0) {
+    if (user.status && user.status !== 'active') {
       return res.status(403).json({ error: 'Account suspended' });
     }
 
@@ -129,7 +129,7 @@ function requireCapability(capability) {
 function generateToken(user) {
   const secret = process.env.JWT_SECRET || 'websitemo-secret-key';
   return jwt.sign(
-    { userId: user.id, username: user.user_login, role: user.role },
+    { userId: user.id, username: user.username || user.user_login, role: user.role },
     secret,
     { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
   );
