@@ -112,6 +112,16 @@ async function initDb(adminPasswordHash) {
   startAutoSave();
 
   console.log('[DB] Database initialized successfully');
+
+  // Supabase Integration Check
+  const { testSupabaseConnection } = require('./supabase');
+  const supaStatus = await testSupabaseConnection();
+  if (supaStatus.connected) {
+    console.log('⚡ [SUPABASE] Successfully connected to Supabase Cloud Database!');
+  } else {
+    console.log(`ℹ️  [SUPABASE] Integration ready. (${supaStatus.reason})`);
+  }
+
   return db;
 }
 
