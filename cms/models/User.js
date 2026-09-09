@@ -17,6 +17,16 @@ const User = {
     return queryOne('SELECT * FROM users WHERE email = ?', [email]);
   },
 
+  findByUsernameOrEmail(loginOrEmail) {
+    return queryOne('SELECT * FROM users WHERE username = ? OR email = ?', [loginOrEmail, loginOrEmail]);
+  },
+
+  sanitizeUser(user) {
+    if (!user) return null;
+    const { password_hash, ...sanitized } = user;
+    return sanitized;
+  },
+
   findAll({ page = 1, perPage = 20, role, search, orderBy = 'created_at', order = 'DESC' } = {}) {
     let sql = 'SELECT id, username, email, display_name, role, status, created_at, updated_at FROM users WHERE 1=1';
     const params = [];
