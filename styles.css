@@ -309,11 +309,18 @@ button {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
   font-size: 1.5rem;
   font-weight: var(--font-weight-black);
   letter-spacing: -0.02em;
   z-index: 1001;
+}
+
+.nav-logo img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .nav-logo .logo-red {
