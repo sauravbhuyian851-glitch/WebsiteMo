@@ -83,6 +83,10 @@ async function startServer() {
   });
 }
 
-startServer();
+if (require.main === module) {
+  startServer();
+} else {
+  initDatabase().catch(console.error);
+}
 
 module.exports = app;
