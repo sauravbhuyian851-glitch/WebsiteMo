@@ -227,13 +227,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ─── Contact Form Handling ───
+  // ─── Contact Form Handling connected to CMS API ───
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const submitBtn = document.getElementById('contact-submit');
       const originalContent = submitBtn.innerHTML;
+
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const phone = document.getElementById('contact-phone').value;
+      const project = document.getElementById('contact-project').value;
+      const budget = document.getElementById('contact-budget').value;
+      const messageText = document.getElementById('contact-message').value;
+
+      const fullMessage = `[Project Inquiry - ${project || 'General'} | Budget: ${budget || 'N/A'} | Phone: ${phone || 'N/A'}]\n\n${messageText}`;
 
       // Loading state
       submitBtn.innerHTML = `
@@ -244,17 +253,27 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       submitBtn.disabled = true;
 
-      // Simulate sending (replace with actual backend)
-      setTimeout(() => {
+      try {
+        // Post inquiry to CMS Comments API (postId 1 is default page/post)
+        await fetch('/api/comments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            postId: 1,
+            author: name,
+            email: email,
+            content: fullMessage
+          })
+        });
+
         submitBtn.innerHTML = `
           <span style="display: inline-flex; align-items: center; gap: 8px;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Message Sent!
+            Message Sent to CMS!
           </span>
         `;
         submitBtn.style.background = '#10B981';
         submitBtn.style.boxShadow = '0 4px 20px rgba(16, 185, 129, 0.3)';
-
         contactForm.reset();
 
         setTimeout(() => {
@@ -262,9 +281,36 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.style.background = '';
           submitBtn.style.boxShadow = '';
-        }, 3000);
-      }, 1500);
+        }, 3500);
+      } catch (err) {
+        console.error('CMS submission error:', err);
+        submitBtn.innerHTML = originalContent;
+        submitBtn.disabled = false;
+      }
     });
+  }
+
+  // ─── If logged into CMS, show top floating Admin Bar ───
+  const token = localStorage.getItem('cms_token');
+  if (token) {
+    const adminBar = document.createElement('div');
+    adminBar.id = 'frontend-cms-bar';
+    adminBar.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; height: 32px; background: #1d2327; color: #fff; z-index: 999999; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-family: sans-serif; font-size: 13px; border-bottom: 1px solid #2c3338;';
+    adminBar.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="/admin/#/dashboard" style="color: #72aee6; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          WebsiteMo CMS Admin
+        </a>
+        <a href="/admin/#/posts/new" style="color: #f0f6fc; text-decoration: none; font-size: 12px;">+ New Post</a>
+        <a href="/admin/#/pages" style="color: #f0f6fc; text-decoration: none; font-size: 12px;">Edit Pages</a>
+      </div>
+      <div>
+        <a href="/admin/#/dashboard" style="background: #2271b1; color: #fff; padding: 3px 10px; border-radius: 3px; font-size: 12px; font-weight: 600; text-decoration: none;">Dashboard »</a>
+      </div>
+    `;
+    document.body.appendChild(adminBar);
+    document.body.style.paddingTop = '32px';
   }
 
   // ─── Add spin animation for loading ───
