@@ -182,6 +182,10 @@ const Post = {
     }
   },
 
+  updateMeta(postId, key, value) {
+    return this.setMeta(postId, key, value);
+  },
+
   deleteMeta(postId, key) {
     run('DELETE FROM post_meta WHERE post_id = ? AND meta_key = ?', [postId, key]);
   },
