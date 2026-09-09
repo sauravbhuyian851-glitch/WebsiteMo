@@ -9,9 +9,16 @@ function getUploadDir() {
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
-  const dir = path.join(__dirname, '..', '..', 'uploads', String(year), month);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+  const baseUploadDir = (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME)
+    ? path.join('/tmp', 'uploads')
+    : path.join(__dirname, '..', '..', 'uploads');
+  const dir = path.join(baseUploadDir, String(year), month);
+  try {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+  } catch (err) {
+    console.warn('[UPLOAD] Warning creating upload dir:', err.message);
   }
   return dir;
 }

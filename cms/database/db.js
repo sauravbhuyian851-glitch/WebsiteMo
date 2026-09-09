@@ -5,7 +5,10 @@
 const path = require('path');
 const fs = require('fs');
 
-const DB_PATH = path.join(__dirname, '..', '..', 'data', 'cms.db');
+const isServerless = !!(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const DB_PATH = isServerless
+  ? path.join('/tmp', 'cms.db')
+  : path.join(__dirname, '..', '..', 'data', 'cms.db');
 const SCHEMA_PATH = path.join(__dirname, 'schema.sql');
 const SEED_PATH = path.join(__dirname, 'seed.sql');
 
@@ -30,15 +33,23 @@ async function getDb() {
 
   const SQL = await initSqlJs();
   const dataDir = path.dirname(DB_PATH);
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+  try {
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+  } catch (err) {
+    console.warn('[DB] mkdir warning:', err.message);
   }
 
   // Load existing or create new
-  if (fs.existsSync(DB_PATH)) {
-    const buffer = fs.readFileSync(DB_PATH);
-    _db = new SQL.Database(buffer);
-  } else {
+  try {
+    if (fs.existsSync(DB_PATH)) {
+      const buffer = fs.readFileSync(DB_PATH);
+      _db = new SQL.Database(buffer);
+    } else {
+      _db = new SQL.Database();
+    }
+  } catch (err) {
     _db = new SQL.Database();
   }
 
@@ -53,13 +64,17 @@ async function getDb() {
  */
 function saveDb() {
   if (!_db) return;
-  const data = _db.export();
-  const buffer = Buffer.from(data);
-  const dataDir = path.dirname(DB_PATH);
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+  try {
+    const data = _db.export();
+    const buffer = Buffer.from(data);
+    const dataDir = path.dirname(DB_PATH);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    fs.writeFileSync(DB_PATH, buffer);
+  } catch (err) {
+    console.warn('[DB] Read-only filesystem save skipped:', err.message);
   }
-  fs.writeFileSync(DB_PATH, buffer);
 }
 
 /**
