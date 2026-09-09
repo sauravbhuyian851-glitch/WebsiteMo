@@ -753,6 +753,9 @@ button {
   cursor: pointer;
   aspect-ratio: 4 / 3;
   background: var(--color-bg-alt);
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .portfolio-card img {
