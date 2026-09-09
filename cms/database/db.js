@@ -101,11 +101,13 @@ async function initDb(adminPasswordHash) {
   const schema = fs.readFileSync(SCHEMA_PATH, 'utf-8');
   db.run(schema);
 
-  // Insert admin user if not exists
+  // Insert or update admin user
+  const bcrypt = require('bcryptjs');
+  const targetPassword = process.env.ADMIN_PASSWORD || '123456';
+  const hash = adminPasswordHash || bcrypt.hashSync(targetPassword, 10);
+
   const result = db.exec("SELECT id FROM users WHERE username = 'admin'");
   if (result.length === 0) {
-    const bcrypt = require('bcryptjs');
-    const hash = adminPasswordHash || bcrypt.hashSync(process.env.ADMIN_PASSWORD || 'admin123', 10);
     db.run(
       `INSERT INTO users (username, email, password_hash, display_name, role, status)
        VALUES (?, ?, ?, ?, ?, 'active')`,
@@ -116,6 +118,11 @@ async function initDb(adminPasswordHash) {
         'Administrator',
         'administrator'
       ]
+    );
+  } else {
+    db.run(
+      `UPDATE users SET password_hash = ? WHERE username = 'admin'`,
+      [hash]
     );
   }
 
