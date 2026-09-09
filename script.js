@@ -290,28 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── If logged into CMS, show top floating Admin Bar ───
-  const token = localStorage.getItem('cms_token');
-  if (token) {
-    const adminBar = document.createElement('div');
-    adminBar.id = 'frontend-cms-bar';
-    adminBar.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; height: 32px; background: #1d2327; color: #fff; z-index: 999999; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; font-family: sans-serif; font-size: 13px; border-bottom: 1px solid #2c3338;';
-    adminBar.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="/admin/#/dashboard" style="color: #72aee6; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 6px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-          WebsiteMo CMS Admin
-        </a>
-        <a href="/admin/#/posts/new" style="color: #f0f6fc; text-decoration: none; font-size: 12px;">+ New Post</a>
-        <a href="/admin/#/pages" style="color: #f0f6fc; text-decoration: none; font-size: 12px;">Edit Pages</a>
-      </div>
-      <div>
-        <a href="/admin/#/dashboard" style="background: #2271b1; color: #fff; padding: 3px 10px; border-radius: 3px; font-size: 12px; font-weight: 600; text-decoration: none;">Dashboard »</a>
-      </div>
-    `;
-    document.body.appendChild(adminBar);
-    document.body.style.paddingTop = '32px';
-  }
+
 
   // ─── Load Live Published Posts from CMS API ───
   const loadCmsPosts = async () => {
