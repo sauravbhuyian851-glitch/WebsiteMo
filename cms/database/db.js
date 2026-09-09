@@ -21,7 +21,10 @@ let _SQL = null;
 async function initSqlJs() {
   if (_SQL) return _SQL;
   const initSqlJsModule = require('sql.js');
-  _SQL = await initSqlJsModule();
+  const wasmPath = path.join(require.resolve('sql.js'), '..', 'sql-wasm.wasm');
+  _SQL = await initSqlJsModule({
+    locateFile: () => wasmPath
+  });
   return _SQL;
 }
 
